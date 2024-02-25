@@ -1,0 +1,23 @@
+{
+  "name": "htmlc",
+  "version": "1.0.0",
+  "description": "htmlC (html Component) is a framework that adds the possibility of separating code through components, leaving your code cleaner.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jorelwall451/htmlC.git"
+  },
+  "keywords": [
+    "html",
+    "component"
+  ],
+  "author": "jorelwall451",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jorelwall451/htmlC/issues"
+  },
+  "homepage": "https://github.com/Jorelwall451/htmlC#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
