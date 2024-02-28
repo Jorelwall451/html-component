@@ -4,7 +4,8 @@
   "description": "htmlC (html Component) is a framework that adds the possibility of separating code through components, leaving your code cleaner.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
