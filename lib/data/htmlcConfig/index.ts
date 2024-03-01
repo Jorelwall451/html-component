@@ -1,7 +1,7 @@
 import {readFile} from 'fs/promises';
 import path from 'path';
 import {cwd} from 'process';
-import type HtmlcConfig from '../types/HtmlcConfig';
+import type HtmlcConfig from '../../types/HtmlcConfig';
 
 export default async function htmlcConfig(): Promise<HtmlcConfig> {
 	const filename = 'htmlcConfig.json';
