@@ -1,5 +1,6 @@
 import {readFile} from 'fs/promises';
 import getParamsNewComponent from './getParamsNewComponent';
+import type NewComponent from '@lib/types/NewComponent';
 
 export default async function getNewComponentElement(newComponentPath: string) {
 	const componentFileContent = await readFile(newComponentPath, {
@@ -23,9 +24,11 @@ export default async function getNewComponentElement(newComponentPath: string) {
 		throw new Error(`It's missing the attribute name in component element at file ${newComponentPath}`);
 	}
 
-	return {
+	const result: NewComponent = {
 		name,
 		params,
 		childNodes,
 	};
+
+	return result;
 }
