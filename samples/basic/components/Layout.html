@@ -1,6 +1,15 @@
 <new-component>
-    <component get="Header"></component>
-    <div class="container">
-        <component-content />
-    </div>
+  <!DOCTYPE html>
+  <html lang="pt-br">
+    <component get="Head" title="MY SITE"></component>
+    <body>
+        <component get="Header" />
+        <main>
+            <component get="Title" param-title="My Title" param-color="#000"></component>
+            <div>
+                <main-content></main-content>
+            </div>
+        </main>
+    </body>
+  </html>
 </new-component>
