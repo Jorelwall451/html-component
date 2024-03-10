@@ -1,9 +1,8 @@
 import getEveryComponentsElements from '@lib/data/elements/component';
 import getEveryNewComponentsElements from '@lib/data/elements/new-component';
 
-export default async function verifyComponentUsages() {
-	const newComponents = await getEveryNewComponentsElements();
-	const components = await getEveryComponentsElements();
+export default async function getUsableComponents() {
+	const [components, newComponents] = await Promise.all([getEveryComponentsElements(), getEveryNewComponentsElements()]);
 
 	const usedComponents = components.filter(component =>
 		newComponents.some(newComponent => newComponent.name === component.name),

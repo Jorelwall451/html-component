@@ -1,6 +1,8 @@
+import type Param from './NewComponentParam';
+
 type NewComponent = {
 	name: string;
-	params: Attr[];
+	params: Param[];
 	childNodes: NodeListOf<ChildNode>;
 };
 

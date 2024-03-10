@@ -1,5 +1,6 @@
 import type Component from '@lib/types/Component';
 import {readFile} from 'fs/promises';
+import getParamsComponent from './getParamsComponent';
 
 export default async function getComponentElement(componentPath: string) {
 	const componentFileContent = await readFile(componentPath, {
@@ -9,18 +10,18 @@ export default async function getComponentElement(componentPath: string) {
 	// eslint-disable-next-line @typescript-eslint/naming-convention
 	const componentDOM = new DOMParser().parseFromString(componentFileContent, 'text/html');
 
-	const componentTag = componentDOM.querySelector('component')!;
+	const componentElement = componentDOM.querySelector('component')!;
 
-	if (!componentTag) {
-		throw new Error(`No have a tagName component in component path ${componentPath}`);
+	if (!componentElement) {
+		throw new Error(`No have a elementName component in component path ${componentPath}`);
 	}
 
-	const name = componentTag.getAttribute('name');
-	const params = componentTag.attributes;
-	const {childNodes} = componentTag;
+	const name = componentElement.getAttribute('name');
+	const params = getParamsComponent(componentElement);
+	const {childNodes} = componentElement;
 
 	if (!name) {
-		throw new Error(`It's missing the attribute name in component tag at file ${componentPath}`);
+		throw new Error(`It's missing the attribute name in component element at file ${componentPath}`);
 	}
 
 	const result: Component = {

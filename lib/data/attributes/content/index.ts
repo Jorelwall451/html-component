@@ -1,9 +1,10 @@
 import getConfig from '@lib/data/config';
 import getEveryNewComponentsElements from '@lib/data/elements/new-component';
+import type NewComponentParam from '@lib/types/NewComponentParam';
 
 type ElementAndParams = {
 	element: Element;
-	newComponentParams: Attr[];
+	newComponentParams: NewComponentParam[];
 };
 
 export default async function getEveryContentAttributes() {
@@ -14,7 +15,7 @@ export default async function getEveryContentAttributes() {
     = [];
 
 	for (const newComponent of newComponents) {
-		for (const childNode of Array.from(newComponent.childNodes)) {
+		for (const childNode of newComponent.childNodes) {
 			if (childNode.nodeType !== Node.ELEMENT_NODE) {
 				continue;
 			}

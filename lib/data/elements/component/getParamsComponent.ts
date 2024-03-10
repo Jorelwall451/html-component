@@ -1,18 +1,16 @@
-import type Param from '@lib/types/NewComponentParam';
+import type Param from '@lib/types/ComponentParam';
 
-export default function getParamsNewComponent(element: Element) {
+export default function getParamsComponent(element: Element) {
 	const params: Param[] = [];
 
 	for (const attribute of element.attributes) {
 		if (attribute.name.startsWith('param:')) {
 			const {name, value} = attribute;
 			const attributeNameAsArray = name.split(':');
-			const isOptional = attributeNameAsArray.includes('optional');
 
 			params.push({
 				name: attributeNameAsArray[1],
-				defaultValue: value,
-				optional: isOptional,
+				value,
 			});
 		}
 	}

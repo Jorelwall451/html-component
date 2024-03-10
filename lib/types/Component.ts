@@ -1,6 +1,8 @@
+import type Param from './ComponentParam';
+
 type Component = {
 	name: string;
-	params: NamedNodeMap;
+	params: Param[];
 	childNodes: NodeListOf<ChildNode>;
 };
 
