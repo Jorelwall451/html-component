@@ -1,5 +1,5 @@
+
 type Config = {
-	prefix?: string;
 	pagesPath: string[];
 	componentsPath: string[];
 };
