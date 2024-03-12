@@ -13,7 +13,7 @@ The `<new-component>` tag is used to define a new component. It allows the creat
 ### Parameters
 
 Both the `<component>` and `<new-component>` tags can accept parameters that can be passed to the component. For example, 
- - `param:title parameter` specifies that the component can accept a parameter called "title" that is not optional.
+ - `param:title` parameter specifies that the component can accept a parameter called "title" that is not optional.
  - `param:title:optional` parameter specifies that the component can accept a parameter called "title" that is optional. 
  
  This allows the component to be customized with different titles as needed.
