@@ -8,6 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "declaration": true,
     "paths": {
       "@lib/*": ["./lib/*"],
       "@tests/*": ["./tests/*"]
