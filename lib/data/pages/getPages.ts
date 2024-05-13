@@ -1,13 +1,12 @@
 import getPagesFileContentPromises from './getPagesFileContentPromises';
+import cheerio, {load} from 'cheerio';
 
 export default async function getPages() {
 	const filesContent = await getPagesFileContentPromises();
 
 	const pages = filesContent.map(fileContent => {
 		try {
-			// eslint-disable-next-line @typescript-eslint/naming-convention
-			const DOM = new DOMParser().parseFromString(fileContent, 'text/html');
-			const {documentElement} = DOM;
+			const documentElement = load(fileContent);
 
 			return documentElement;
 		} catch (e) {
