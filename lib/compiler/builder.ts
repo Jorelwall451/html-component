@@ -1,6 +1,6 @@
 import {writeFile} from 'fs/promises';
 import detailPages from './detailPages';
-import getConfig from '@lib/data/config';
+import getConfig from '../data/config';
 import path from 'path';
 import {cwd} from 'process';
 import {randomUUID} from 'crypto';
