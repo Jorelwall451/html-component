@@ -1,3 +1,4 @@
+import {load} from 'cheerio';
 import getNewComponentsFileContentPromises from './getNewComponentsFileContentPromises';
 
 export default async function getNewComponents() {
@@ -5,17 +6,15 @@ export default async function getNewComponents() {
 
 	const components = filesContent.map(fileContent => {
 		try {
-			// eslint-disable-next-line @typescript-eslint/naming-convention
-			const DOM = new DOMParser().parseFromString(fileContent, 'text/html');
-			const {documentElement} = DOM;
+			const $ = load(fileContent);
 
-			const element = documentElement.querySelector('new-component');
+			const element = $('new-component');
 
 			if (!element) {
 				throw new Error('Cannot found a element with component.');
 			}
 
-			const name = element.getAttribute('name');
+			const name = element.attr('name');
 
 			if (!name) {
 				throw new Error('Cannot get the name of component.');
