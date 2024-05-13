@@ -1,5 +1,5 @@
-import getNewComponentByName from '@lib/data/components/getNewComponentByName';
-import getPages from '@lib/data/pages/getPages';
+import getNewComponentByName from '../data/components/getNewComponentByName';
+import getPages from '../data/pages/getPages';
 
 export default async function detailPages() {
 	const pages = await getPages();
