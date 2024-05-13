@@ -1,13 +1,14 @@
-import type Config from '@lib/types/Config';
+import type Config from '../../types/Config';
 import path from 'path';
 import {cwd} from 'process';
 
 export default async function getConfig() {
 	const filename = 'htmlc.config.js';
-	const filepath = path.join(cwd(), filename);
+	const filepath = path.resolve(cwd(), filename);
 
 	try {
-		const config = await import(filepath) as Config;
+		// eslint-disable-next-line @typescript-eslint/no-require-imports
+		const config = (await require(filepath)).default as Config;
 
 		return config;
 	} catch (e) {
