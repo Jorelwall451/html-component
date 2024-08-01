@@ -1,0 +1,5 @@
+{
+    "pagesDir": "pages",
+    "componentsDir": "components",
+    "outDir": "dist"
+}
