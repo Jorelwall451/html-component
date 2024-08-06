@@ -1,4 +1,4 @@
-import getNewComponents from '../data/new-component';
+import getNewComponents from '../data/new-component/index';
 
 export default async function detailComponents($: cheerio.Root) {
 	const newComponents = await getNewComponents();
@@ -11,12 +11,10 @@ export default async function detailComponents($: cheerio.Root) {
 		const newComponent = newComponents.find(newComponent => newComponent.name === componentName);
 
 		if (!newComponent) {
-			throw new Error();
+			throw new Error(`Cannot found the component with the name ${componentName}.`);
 		}
 
 		let newContent = newComponent.content;
-
-		console.log('-'.repeat(50));
 
 		const matches = newContent.matchAll(interpolationRegex);
 
