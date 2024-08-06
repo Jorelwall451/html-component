@@ -9,7 +9,11 @@
   ],
   "scripts": {
     "test": "jest test",
+    "build": "tsc",
     "dev": "tsx watch ../lib/builder/buildFiles.ts"
+  },
+  "bin": {
+    "htmlc": "./dist/bin/index.js"
   },
   "author": "jorelwall451",
   "license": "MIT",
@@ -18,7 +22,6 @@
     "@types/html-minifier": "^4.0.5",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.11",
-    "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
     "eslint": "^8.57.0",
@@ -31,7 +34,6 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "html-minifier": "^4.0.0",
-    "xml2js": "^0.6.2"
+    "html-minifier": "^4.0.0"
   }
 }
