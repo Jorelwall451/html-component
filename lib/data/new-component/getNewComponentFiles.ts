@@ -1,5 +1,5 @@
 import {readFile} from 'fs/promises';
-import getConfig from '../config';
+import getConfig from '../config/index';
 
 export default async function getNewComponentFiles() {
 	const {componentsPath} = await getConfig();
