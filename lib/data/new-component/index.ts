@@ -1,42 +1,39 @@
 import {load} from 'cheerio';
 import getNewComponentFiles from './getNewComponentFiles';
 import type Component from '../../types/Component';
+import getNewComponentParams from './getNewComponentParams';
 
 export default async function getNewComponents() {
-	const componentFiles = await getNewComponentFiles();
+	const newComponentFiles = await getNewComponentFiles();
 
 	const newComponents: Component[] = [];
 
-	for (const component of componentFiles) {
-		const $ = load(component.content, {
+	for (const newComponent of newComponentFiles) {
+		const $ = load(newComponent.content, {
 			xmlMode: true,
 			decodeEntities: false,
 			recognizeSelfClosing: true,
 		});
-		const newComponent = $('new-component');
 
-		if (newComponent.length === 0) {
-			throw new Error(`Don't exists a component with the name ${component.filename}`);
+		const newComponentElement = $('new-component');
+
+		if (newComponentElement.length === 0) {
+			throw new Error(`Don't exists a component with the name ${newComponent.filename}`);
 		}
 
-		const newComponentAttributes = newComponent.attr();
+		const newComponentAttributes = newComponentElement.attr();
 
 		const {name} = newComponentAttributes;
-		const params = Object.entries(newComponentAttributes)
-			.filter(([key]) => key.startsWith('param:'))
-			.reduce((params: Record<string, undefined>, [key]) => {
-				const paramName = key.slice(6);
-				params[paramName] = undefined;
-
-				return params;
-			}, {});
-		const content = newComponent.html();
+		const params = getNewComponentParams(newComponentAttributes);
+		const content = newComponentElement.html();
 
 		if (!name) {
+			console.warn(`Component with name ${newComponent.filename} not found.`);
 			continue;
 		}
 
 		if (!content) {
+			console.warn(`Component with name ${newComponent.filename} not have a content`);
 			continue;
 		}
 
