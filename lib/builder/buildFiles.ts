@@ -1,6 +1,6 @@
 import {writeFile} from 'fs/promises';
 import detailPages from './detailPages';
-import getConfig from '../data/config';
+import getConfig from '../data/config/index';
 import {join} from 'path';
 import {minify} from 'html-minifier';
 
