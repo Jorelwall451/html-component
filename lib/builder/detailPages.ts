@@ -1,22 +1,15 @@
-import {load} from 'cheerio';
-import getPages from '../data/pages';
+import getPages from '../data/pages/index';
 import detailComponents from './detailComponents';
 
 export default async function detailPages() {
 	const pages = await getPages();
 
-	const detailedPagesPromises = pages.map(async page => {
-		const $ = load(page.content, {
-			xmlMode: true,
-			decodeEntities: false,
-			recognizeSelfClosing: true,
-		});
-
-		await detailComponents($);
+	const detailedPagesPromises = pages.map(async ({filename, content}) => {
+		await detailComponents(content);
 
 		return {
-			filename: page.filename,
-			content: $.html(),
+			filename,
+			content: content.html(),
 		};
 	});
 
