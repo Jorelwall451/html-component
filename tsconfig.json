@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
+    "target": "ES2016",
+    "module": "CommonJS",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["lib/**/*.ts", "tests/**/*.ts", "jest.config.ts"]
+  "include": ["lib/**/*.ts", "bin/**/*.ts", "tests/**/*.ts"]
 }
