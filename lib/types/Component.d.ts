@@ -1,7 +1,7 @@
 
 type Component = {
 	name: string;
-	params: Record<string, undefined>;
+	params: Record<string, string>;
 	content: string;
 };
 

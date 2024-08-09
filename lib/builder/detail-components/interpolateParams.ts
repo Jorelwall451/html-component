@@ -13,7 +13,7 @@ export default function interpolateParams(newContent: string, componentElement: 
 
 		if (Object.getOwnPropertyDescriptor(newComponent.params, paramName)) {
 			const paramValue = $(componentElement).attr(`param:${paramName}`);
-			newContent = newContent.replace(match[0], paramValue ?? '');
+			newContent = newContent.replace(match[0], paramValue ?? newComponent.params[paramName] ?? '');
 		}
 	}
 
