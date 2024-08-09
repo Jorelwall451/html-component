@@ -1,5 +1,5 @@
 import getPages from '../data/pages/index';
-import detailComponents from './detailComponents';
+import detailComponents from './detail-components';
 
 export default async function detailPages() {
 	const pages = await getPages();
