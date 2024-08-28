@@ -1,5 +1,5 @@
 {
-  "name": "html-component",
+  "name": "@jorelwall451/html-component",
   "version": "1.0.0",
   "description": "html component is a framework that adds the possibility of separating code through components, leaving your code cleaner.",
   "main": "index.js",
@@ -17,7 +17,8 @@
   "scripts": {
     "test": "jest test",
     "build": "tsup",
-    "dev": "tsx watch ../lib/builder/buildFiles.ts"
+    "dev": "tsx watch ../lib/builder/buildFiles.ts",
+    "publish": "npm run build && npm publish --access=public"
   },
   "bin": {
     "htmlc": "./dist/bin/index.js"
