@@ -11,7 +11,7 @@ export default async function getNewComponentFiles() {
 		});
 
 		if (!filename) {
-			throw new Error();
+			throw new Error('The filename is undefined');
 		}
 
 		return {

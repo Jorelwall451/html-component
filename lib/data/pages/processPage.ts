@@ -6,7 +6,7 @@ export default async function processPage(pagePath: string) {
 
 	if (!filename) {
 		console.warn(`Filename not found for path: ${pagePath}`);
-		throw new Error();
+		throw new Error('The filename is undefined.');
 	}
 
 	const fileContent = await readFile(pagePath, {encoding: 'utf-8'});
